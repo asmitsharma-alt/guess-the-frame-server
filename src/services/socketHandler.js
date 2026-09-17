@@ -399,7 +399,7 @@ class SocketHandler {
         const room = roomManager.getRoom(client.roomCode);
         if (!room) return;
 
-        const text = String(msg.text || '').trim();
+        const text = String(msg.text || (msg.msg && msg.msg.text) || '').trim();
         if (!text) return;
 
         // Check spoiler shield during active round
