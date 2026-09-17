@@ -1,0 +1,30 @@
+{
+  "name": "guess-the-frame-server",
+  "version": "1.0.0",
+  "description": "Production Real-Time WebSocket & Sync Server for Guess The Frame (Render Deployment with UptimeRobot keep-alive)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node tests/test.js"
+  },
+  "keywords": [
+    "guess-the-frame",
+    "multiplayer",
+    "websocket",
+    "render",
+    "uptimerobot",
+    "party-game"
+  ],
+  "author": "Asmit Sharma",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
