@@ -19,7 +19,10 @@ class RoomManager {
   }
 
   createRoom(hostData, initialSettings = {}) {
-    const code = this.generateRoomCode();
+    const preferred = (initialSettings && (initialSettings.roomCode || initialSettings.code)) || (hostData && hostData.roomCode);
+    const code = (preferred && !this.rooms.has(preferred.toUpperCase().trim()))
+      ? preferred.toUpperCase().trim()
+      : this.generateRoomCode();
     const settings = {
       category: 'all',
       categories: ['frames', 'eyes', 'dialogue'],

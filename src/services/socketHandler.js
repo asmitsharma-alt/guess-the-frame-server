@@ -105,8 +105,9 @@ class SocketHandler {
 
       // 2. Room Creation
       case 'CREATE_ROOM': {
-        const { hostPlayer, settings } = msg;
-        const result = roomManager.createRoom(hostPlayer || {}, settings || {});
+        const { hostPlayer, settings, roomCode } = msg;
+        const initialSettings = { ...(settings || {}), roomCode: roomCode || (settings && settings.roomCode) };
+        const result = roomManager.createRoom(hostPlayer || {}, initialSettings);
         client.roomCode = result.room.code;
         client.playerId = result.hostPlayer.id;
         client.isHost = true;
