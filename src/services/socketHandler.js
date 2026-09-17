@@ -435,7 +435,8 @@ class SocketHandler {
 
         this.broadcastToRoom(room.code, {
           type: 'CHAT_MESSAGE',
-          msg: chatPayload
+          msg: chatPayload,
+          serverTime: Date.now()
         });
         break;
       }
