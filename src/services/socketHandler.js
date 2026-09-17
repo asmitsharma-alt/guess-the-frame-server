@@ -79,6 +79,9 @@ class SocketHandler {
 
   broadcastToRoom(roomCode, payload, excludeWs = null) {
     if (!roomCode) return;
+    if (typeof payload === 'object' && payload !== null && !payload.roomCode) {
+      payload.roomCode = roomCode;
+    }
     const json = JSON.stringify(payload);
     for (const [ws, client] of this.clients.entries()) {
       if (client.roomCode === roomCode && ws !== excludeWs && ws.readyState === 1) {
